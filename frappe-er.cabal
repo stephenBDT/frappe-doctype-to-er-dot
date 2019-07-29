@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8d20239bb2bb90fe5ca59264fe81c20968f8df6800970b9d442fb11d25a7f4ee
+-- hash: bcb9dd5e6a78e51bc30637fa45281df875a3cfab3df0873d889e7ae9a9bce43c
 
 name:           frappe-er
 version:        0.1.0.0
@@ -28,22 +28,6 @@ source-repository head
 library
   exposed-modules:
       Lib
-      Pangraph
-      Pangraph.Containers
-      Pangraph.Example
-      Pangraph.Examples.SampleGraph
-      Pangraph.FGL
-      Pangraph.Gml.Ast
-      Pangraph.Gml.Parser
-      Pangraph.Gml.Writer
-      Pangraph.GraphML.Parser
-      Pangraph.GraphML.Writer
-      Pangraph.Internal.HexmlExtra
-      Pangraph.Internal.ProtoGraph
-      Pangraph.Internal.XMLTemplate
-      Pangraph.Pajek.Ast
-      Pangraph.Pajek.Parser
-      Pangraph.Pajek.Writer
   other-modules:
       Paths_frappe_er
   hs-source-dirs:
