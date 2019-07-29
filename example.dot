@@ -1,0 +1,74 @@
+digraph models_diagram {
+  graph[overlap=false, splines=true]
+  Venue [shape=record, label="{\
+    Venue|name :string\l\
+    }"]
+  User [shape=record, label="{User|pmail :string\l\
+    password :string\l\
+    password2 :string\l\
+    }"]
+  Order [shape=record, label="{Order|\
+    name :string\l\
+    }"]
+  Foo [shape=record, label=<
+       <table border="0" cellborder="0" text-align="left" cellspacing="0">
+       <tr><td ><i>Input Foo</i></td></tr>
+       <tr><td port="1">one</td></tr>\l\
+       <tr><td port="2">two</td></tr>\l\
+       </table>>];
+  tbl [
+  shape=plaintext
+  label=<
+
+  <table border='0' cellborder='1' color='blue' cellspacing='0'>
+    <tr><td>foo</td></tr>
+    <tr><td cellpadding='4'>
+    <table border="0" port="xx" color='orange' cellspacing='0' cellborder='0'>
+      <tr><td align="left" >one</td><td align="left">:string</td></tr><tr><td align="left">two  </td><td align="left">:string</td></tr><tr><td align="left">three</td><td align="left">:string</td></tr>
+      <tr><td align="left">four </td><td align="left">:string</td></tr><tr><td align="left" port="xxy">five </td><td align="left">:string</td></tr>
+      <tr><td align="left">seven</td><td align="left">:longstring</td></tr>
+    </table>
+    </td>
+    </tr>
+  </table>
+
+  >];
+  User:email -> Order [arrowtail=odot, arrowhead=crow, dir=both, label="request"]
+  User -> Venue [arrowtail=odot, arrowhead=crow, dir=both, label=agent]
+  tbl:xxy -> User ;
+}digraph {
+    graph [pad="0.5", nodesep="0.5", ranksep="2"];
+    node [shape=record]
+    rankdir=LR;
+
+
+
+
+Bar [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Input Bar</i></td></tr>
+  <tr><td port="7">seven</td></tr>
+  <tr><td port="8">eight</td></tr>
+  <tr><td port="9">nine</td></tr>
+  <tr><td port="10">ten</td></tr>
+</table>>];
+
+
+Baz [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td port="base"><i>Output Baz</i></td></tr>
+  <tr><td port="a">alpha</td></tr>
+  <tr><td port="b">bravo</td></tr>
+  <tr><td port="c">charlie</td></tr>
+  <tr><td port="d">delta</td></tr>
+  <tr><td port="e">echo</td></tr>
+  <tr><td port="f">foxtrot</td></tr>
+</table>>];
+
+Foo:2 -> Baz:base;
+Foo:3 -> Baz:e;
+Foo:6 -> Baz:b;
+Bar:7 -> Baz:d;
+Bar:9 -> Baz:f;
+}
+}

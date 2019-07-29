@@ -9,10 +9,30 @@ import Data.Aeson as JSON
 import System.Directory
 import GHC.Generics
 import Control.Monad
+import Data.ByteString.UTF8 as BSU
 import qualified Data.ByteString.Lazy as B
-import Pangraph.GraphML.Writer
-import Pangraph
+import qualified Data.ByteString as BS
+import Pangraph.GraphML.Writer as GW
+import Pangraph as P
 
+
+bs :: String -> BS.ByteString
+bs = BSU.fromString
+
+fromBs :: BS.ByteString -> String
+fromBs = BSU.toString
+
+testKVList :: [(BS.ByteString, BS.ByteString)]
+testKVList = [(bs "key1", bs "val1"),
+              (bs "key2", bs "val2"),
+              (bs "key3", bs "val3")
+             ]
+
+testVertex = P.makeVertex (bs "VertexId") testKVList
+testVertex' = P.makeVertex (bs "v2VertexId") testKVList
+
+execute:: P.Pangraph -> IO ()
+execute = BS.writeFile  "out.graphml" . GW.write 
 
 getJSON :: FilePath -> IO B.ByteString
 getJSON = B.readFile
@@ -81,8 +101,13 @@ test =
       >>= filterM doesDirectoryExist
         >>= mapM (\fp -> L.map (fp ++) <$> listDirectory fp))
 
+fromJust :: Maybe a -> a
+fromJust (Just a) = a
+fromJust _ = error "not a just my firend"
+
 main :: IO ()
 main = do
   currentDir <- listDirectory testPath
   _ <- mapM putStrLn currentDir
-  return ()
+  a <- execute $ fromJust $ makePangraph [testVertex] []
+  return a
