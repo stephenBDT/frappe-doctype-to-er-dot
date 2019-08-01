@@ -47,3 +47,5 @@ flycheck_*.el
 
 # stack directory
 .stack-work
+
+.png

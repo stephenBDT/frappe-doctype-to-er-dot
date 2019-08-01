@@ -17,6 +17,7 @@ digraph models_diagram {
        <tr><td port="2">two</td></tr>\l\
        </table>>];
   tbl [
+
   shape=plaintext
   label=<
 
@@ -25,7 +26,7 @@ digraph models_diagram {
     <tr><td cellpadding='4'>
     <table border="0" port="xx" color='orange' cellspacing='0' cellborder='0'>
       <tr><td align="left" >one</td><td align="left">:string</td></tr><tr><td align="left">two  </td><td align="left">:string</td></tr><tr><td align="left">three</td><td align="left">:string</td></tr>
-      <tr><td align="left">four </td><td align="left">:string</td></tr><tr><td align="left" port="xxy">five </td><td align="left">:string</td></tr>
+      <tr><td align="left">four </td><td align="left">:string</td></tr><tr port="xxy"><td align="left" >five </td><td align="left">:string</td></tr>
       <tr><td align="left">seven</td><td align="left">:longstring</td></tr>
     </table>
     </td>
@@ -35,7 +36,7 @@ digraph models_diagram {
   >];
   User:email -> Order [arrowtail=odot, arrowhead=crow, dir=both, label="request"]
   User -> Venue [arrowtail=odot, arrowhead=crow, dir=both, label=agent]
-  tbl:xxy -> User ;
+  tbl:xxy -> User:pmail ;
 }digraph {
     graph [pad="0.5", nodesep="0.5", ranksep="2"];
     node [shape=record]

@@ -1,12 +1,7 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveGeneric #-}
+module DocType.DocType
+  (
+  ) where
 
-module Lib
-    ( someFunc
-    , DocType(..)
-    , DocField(..)
-    , getJSON
-    ) where
 import Data.Text as T
 import Data.List as L
 import Data.Aeson as JSON
@@ -50,7 +45,3 @@ instance FromJSON Permission
 instance ToJSON Permission
 instance FromJSON DocType
 instance ToJSON DocType
-
-
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"

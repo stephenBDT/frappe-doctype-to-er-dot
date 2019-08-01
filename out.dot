@@ -1,0 +1,1396 @@
+digraph models_diagram {
+ graph[overlap=false, splines=true]TagCategory[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Tag Category</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>category_name</td><td align='left'  port='category_name'>:Data</td></tr>
+
+<tr><td align='left'>tags</td><td align='left'  port='tags'>:Table</td></tr>
+
+<tr><td align='left'>tagdocs</td><td align='left'  port='tagdocs'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+ActivityLog[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Activity Log</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>subject</td><td align='left'  port='subject'>:Small Text</td></tr>
+
+<tr><td align='left'>content</td><td align='left'  port='content'>:Text Editor</td></tr>
+
+<tr><td align='left'>communication_date</td><td align='left'  port='communication_date'>:Datetime</td></tr>
+
+<tr><td align='left'>operation</td><td align='left'  port='operation'>:Select</td></tr>
+
+<tr><td align='left'>status</td><td align='left'  port='status'>:Select</td></tr>
+
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>reference_name</td><td align='left'  port='reference_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>reference_owner</td><td align='left'  port='reference_owner'>:Read Only</td></tr>
+
+<tr><td align='left'>timeline_doctype</td><td align='left'  port='timeline_doctype'>:Link</td></tr>
+
+<tr><td align='left'>timeline_name</td><td align='left'  port='timeline_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>link_doctype</td><td align='left'  port='link_doctype'>:Link</td></tr>
+
+<tr><td align='left'>link_name</td><td align='left'  port='link_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>user</td><td align='left'  port='user'>:Link</td></tr>
+
+<tr><td align='left'>full_name</td><td align='left'  port='full_name'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Report[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Report</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>report_name</td><td align='left'  port='report_name'>:Data</td></tr>
+
+<tr><td align='left'>ref_doctype</td><td align='left'  port='ref_doctype'>:Link</td></tr>
+
+<tr><td align='left'>reference_report</td><td align='left'  port='reference_report'>:Data</td></tr>
+
+<tr><td align='left'>is_standard</td><td align='left'  port='is_standard'>:Select</td></tr>
+
+<tr><td align='left'>module</td><td align='left'  port='module'>:Link</td></tr>
+
+<tr><td align='left'>add_total_row</td><td align='left'  port='add_total_row'>:Check</td></tr>
+
+<tr><td align='left'>report_type</td><td align='left'  port='report_type'>:Select</td></tr>
+
+<tr><td align='left'>disabled</td><td align='left'  port='disabled'>:Check</td></tr>
+
+<tr><td align='left'>icon</td><td align='left'  port='icon'>:Data</td></tr>
+
+<tr><td align='left'>color</td><td align='left'  port='color'>:Data</td></tr>
+
+<tr><td align='left'>letter_head</td><td align='left'  port='letter_head'>:Link</td></tr>
+
+<tr><td align='left'>query</td><td align='left'  port='query'>:Code</td></tr>
+
+<tr><td align='left'>javascript</td><td align='left'  port='javascript'>:Code</td></tr>
+
+<tr><td align='left'>json</td><td align='left'  port='json'>:Code</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+
+<tr><td align='left'>disable_prepared_report</td><td align='left'  port='disable_prepared_report'>:Check</td></tr>
+
+<tr><td align='left'>prepared_report</td><td align='left'  port='prepared_report'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Tag[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Tag</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>tag_name</td><td align='left'  port='tag_name'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+ErrorSnapshot[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Error Snapshot</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>view</td><td align='left'  port='view'>:HTML</td></tr>
+
+<tr><td align='left'>seen</td><td align='left'  port='seen'>:Check</td></tr>
+
+<tr><td align='left'>evalue</td><td align='left'  port='evalue'>:Code</td></tr>
+
+<tr><td align='left'>timestamp</td><td align='left'  port='timestamp'>:Datetime</td></tr>
+
+<tr><td align='left'>relapses</td><td align='left'  port='relapses'>:Int</td></tr>
+
+<tr><td align='left'>etype</td><td align='left'  port='etype'>:Data</td></tr>
+
+<tr><td align='left'>traceback</td><td align='left'  port='traceback'>:Code</td></tr>
+
+<tr><td align='left'>parent_error_snapshot</td><td align='left'  port='parent_error_snapshot'>:Data</td></tr>
+
+<tr><td align='left'>pyver</td><td align='left'  port='pyver'>:Code</td></tr>
+
+<tr><td align='left'>exception</td><td align='left'  port='exception'>:Code</td></tr>
+
+<tr><td align='left'>locals</td><td align='left'  port='locals'>:Code</td></tr>
+
+<tr><td align='left'>frames</td><td align='left'  port='frames'>:Code</td></tr>
+</table></td></tr>
+</table>
+>];
+
+SMSSettings[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>SMS Settings</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>sms_gateway_url</td><td align='left'  port='sms_gateway_url'>:Data</td></tr>
+
+<tr><td align='left'>message_parameter</td><td align='left'  port='message_parameter'>:Data</td></tr>
+
+<tr><td align='left'>receiver_parameter</td><td align='left'  port='receiver_parameter'>:Data</td></tr>
+
+<tr><td align='left'>parameters</td><td align='left'  port='parameters'>:Table</td></tr>
+
+<tr><td align='left'>use_post</td><td align='left'  port='use_post'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+BlockModule[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Block Module</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>module</td><td align='left'  port='module'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DocShare[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>DocShare</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>user</td><td align='left'  port='user'>:Link</td></tr>
+
+<tr><td align='left'>share_doctype</td><td align='left'  port='share_doctype'>:Link</td></tr>
+
+<tr><td align='left'>share_name</td><td align='left'  port='share_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>read</td><td align='left'  port='read'>:Check</td></tr>
+
+<tr><td align='left'>write</td><td align='left'  port='write'>:Check</td></tr>
+
+<tr><td align='left'>share</td><td align='left'  port='share'>:Check</td></tr>
+
+<tr><td align='left'>everyone</td><td align='left'  port='everyone'>:Check</td></tr>
+
+<tr><td align='left'>notify_by_email</td><td align='left'  port='notify_by_email'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+RolePermissionforPageandReport[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Role Permission for Page and Report</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>set_role_for</td><td align='left'  port='set_role_for'>:Select</td></tr>
+
+<tr><td align='left'>page</td><td align='left'  port='page'>:Link</td></tr>
+
+<tr><td align='left'>report</td><td align='left'  port='report'>:Link</td></tr>
+
+<tr><td align='left'>disable_prepared_report</td><td align='left'  port='disable_prepared_report'>:Check</td></tr>
+
+<tr><td align='left'>roles_html</td><td align='left'  port='roles_html'>:HTML</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+CustomDocPerm[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Custom DocPerm</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>role</td><td align='left'  port='role'>:Link</td></tr>
+
+<tr><td align='left'>if_owner</td><td align='left'  port='if_owner'>:Check</td></tr>
+
+<tr><td align='left'>permlevel</td><td align='left'  port='permlevel'>:Int</td></tr>
+
+<tr><td align='left'>read</td><td align='left'  port='read'>:Check</td></tr>
+
+<tr><td align='left'>write</td><td align='left'  port='write'>:Check</td></tr>
+
+<tr><td align='left'>create</td><td align='left'  port='create'>:Check</td></tr>
+
+<tr><td align='left'>delete</td><td align='left'  port='delete'>:Check</td></tr>
+
+<tr><td align='left'>submit</td><td align='left'  port='submit'>:Check</td></tr>
+
+<tr><td align='left'>cancel</td><td align='left'  port='cancel'>:Check</td></tr>
+
+<tr><td align='left'>amend</td><td align='left'  port='amend'>:Check</td></tr>
+
+<tr><td align='left'>report</td><td align='left'  port='report'>:Check</td></tr>
+
+<tr><td align='left'>export</td><td align='left'  port='export'>:Check</td></tr>
+
+<tr><td align='left'>import</td><td align='left'  port='import'>:Check</td></tr>
+
+<tr><td align='left'>set_user_permissions</td><td align='left'  port='set_user_permissions'>:Check</td></tr>
+
+<tr><td align='left'>share</td><td align='left'  port='share'>:Check</td></tr>
+
+<tr><td align='left'>print</td><td align='left'  port='print'>:Check</td></tr>
+
+<tr><td align='left'>email</td><td align='left'  port='email'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DynamicLink[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Dynamic Link</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>link_doctype</td><td align='left'  port='link_doctype'>:Link</td></tr>
+
+<tr><td align='left'>link_name</td><td align='left'  port='link_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>link_title</td><td align='left'  port='link_title'>:Read Only</td></tr>
+</table></td></tr>
+</table>
+>];
+
+SMSParameter[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>SMS Parameter</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>parameter</td><td align='left'  port='parameter'>:Data</td></tr>
+
+<tr><td align='left'>value</td><td align='left'  port='value'>:Data</td></tr>
+
+<tr><td align='left'>header</td><td align='left'  port='header'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+RoleProfile[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Role Profile</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>role_profile</td><td align='left'  port='role_profile'>:Data</td></tr>
+
+<tr><td align='left'>roles_html</td><td align='left'  port='roles_html'>:HTML</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+HasRole[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Has Role</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>role</td><td align='left'  port='role'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+UserSocialLogin[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>User Social Login</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>provider</td><td align='left'  port='provider'>:Data</td></tr>
+
+<tr><td align='left'>username</td><td align='left'  port='username'>:Data</td></tr>
+
+<tr><td align='left'>userid</td><td align='left'  port='userid'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DocPerm[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>DocPerm</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>role</td><td align='left'  port='role'>:Link</td></tr>
+
+<tr><td align='left'>if_owner</td><td align='left'  port='if_owner'>:Check</td></tr>
+
+<tr><td align='left'>permlevel</td><td align='left'  port='permlevel'>:Int</td></tr>
+
+<tr><td align='left'>read</td><td align='left'  port='read'>:Check</td></tr>
+
+<tr><td align='left'>write</td><td align='left'  port='write'>:Check</td></tr>
+
+<tr><td align='left'>create</td><td align='left'  port='create'>:Check</td></tr>
+
+<tr><td align='left'>delete</td><td align='left'  port='delete'>:Check</td></tr>
+
+<tr><td align='left'>submit</td><td align='left'  port='submit'>:Check</td></tr>
+
+<tr><td align='left'>cancel</td><td align='left'  port='cancel'>:Check</td></tr>
+
+<tr><td align='left'>amend</td><td align='left'  port='amend'>:Check</td></tr>
+
+<tr><td align='left'>report</td><td align='left'  port='report'>:Check</td></tr>
+
+<tr><td align='left'>export</td><td align='left'  port='export'>:Check</td></tr>
+
+<tr><td align='left'>import</td><td align='left'  port='import'>:Check</td></tr>
+
+<tr><td align='left'>set_user_permissions</td><td align='left'  port='set_user_permissions'>:Check</td></tr>
+
+<tr><td align='left'>share</td><td align='left'  port='share'>:Check</td></tr>
+
+<tr><td align='left'>print</td><td align='left'  port='print'>:Check</td></tr>
+
+<tr><td align='left'>email</td><td align='left'  port='email'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+SuccessAction[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Success Action</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>ref_doctype</td><td align='left'  port='ref_doctype'>:Link</td></tr>
+
+<tr><td align='left'>first_success_message</td><td align='left'  port='first_success_message'>:Data</td></tr>
+
+<tr><td align='left'>message</td><td align='left'  port='message'>:Data</td></tr>
+
+<tr><td align='left'>next_actions_html</td><td align='left'  port='next_actions_html'>:HTML</td></tr>
+
+<tr><td align='left'>next_actions</td><td align='left'  port='next_actions'>:Data</td></tr>
+
+<tr><td align='left'>action_timeout</td><td align='left'  port='action_timeout'>:Int</td></tr>
+</table></td></tr>
+</table>
+>];
+
+TagDocCategory[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Tag Doc Category</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>tagdoc</td><td align='left'  port='tagdoc'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Version[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Version</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>ref_doctype</td><td align='left'  port='ref_doctype'>:Link</td></tr>
+
+<tr><td align='left'>docname</td><td align='left'  port='docname'>:Data</td></tr>
+
+<tr><td align='left'>data</td><td align='left'  port='data'>:Code</td></tr>
+
+<tr><td align='left'>table_html</td><td align='left'  port='table_html'>:HTML</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DataImport[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Data Import</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>action</td><td align='left'  port='action'>:Select</td></tr>
+
+<tr><td align='left'>insert_new</td><td align='left'  port='insert_new'>:Check</td></tr>
+
+<tr><td align='left'>overwrite</td><td align='left'  port='overwrite'>:Check</td></tr>
+
+<tr><td align='left'>only_update</td><td align='left'  port='only_update'>:Check</td></tr>
+
+<tr><td align='left'>import_file</td><td align='left'  port='import_file'>:Attach</td></tr>
+
+<tr><td align='left'>error_file</td><td align='left'  port='error_file'>:Attach</td></tr>
+
+<tr><td align='left'>skip_errors</td><td align='left'  port='skip_errors'>:Check</td></tr>
+
+<tr><td align='left'>submit_after_import</td><td align='left'  port='submit_after_import'>:Check</td></tr>
+
+<tr><td align='left'>ignore_encoding_errors</td><td align='left'  port='ignore_encoding_errors'>:Check</td></tr>
+
+<tr><td align='left'>no_email</td><td align='left'  port='no_email'>:Check</td></tr>
+
+<tr><td align='left'>import_status</td><td align='left'  port='import_status'>:Select</td></tr>
+
+<tr><td align='left'>show_only_errors</td><td align='left'  port='show_only_errors'>:Check</td></tr>
+
+<tr><td align='left'>import_log</td><td align='left'  port='import_log'>:HTML</td></tr>
+
+<tr><td align='left'>log_details</td><td align='left'  port='log_details'>:Code</td></tr>
+
+<tr><td align='left'>amended_from</td><td align='left'  port='amended_from'>:Link</td></tr>
+
+<tr><td align='left'>total_rows</td><td align='left'  port='total_rows'>:Int</td></tr>
+</table></td></tr>
+</table>
+>];
+
+UserPermission[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>User Permission</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>user</td><td align='left'  port='user'>:Link</td></tr>
+
+<tr><td align='left'>allow</td><td align='left'  port='allow'>:Link</td></tr>
+
+<tr><td align='left'>for_value</td><td align='left'  port='for_value'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>is_default</td><td align='left'  port='is_default'>:Check</td></tr>
+
+<tr><td align='left'>apply_to_all_doctypes</td><td align='left'  port='apply_to_all_doctypes'>:Check</td></tr>
+
+<tr><td align='left'>applicable_for</td><td align='left'  port='applicable_for'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DataExport[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Data Export</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>file_type</td><td align='left'  port='file_type'>:Select</td></tr>
+
+<tr><td align='left'>filter_list</td><td align='left'  port='filter_list'>:HTML</td></tr>
+
+<tr><td align='left'>fields_multicheck</td><td align='left'  port='fields_multicheck'>:HTML</td></tr>
+</table></td></tr>
+</table>
+>];
+
+ModuleDef[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Module Def</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>module_name</td><td align='left'  port='module_name'>:Data</td></tr>
+
+<tr><td align='left'>app_name</td><td align='left'  port='app_name'>:Data</td></tr>
+
+<tr><td align='left'>restrict_to_domain</td><td align='left'  port='restrict_to_domain'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+SystemSettings[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>System Settings</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>country</td><td align='left'  port='country'>:Link</td></tr>
+
+<tr><td align='left'>language</td><td align='left'  port='language'>:Link</td></tr>
+
+<tr><td align='left'>time_zone</td><td align='left'  port='time_zone'>:Select</td></tr>
+
+<tr><td align='left'>is_first_startup</td><td align='left'  port='is_first_startup'>:Check</td></tr>
+
+<tr><td align='left'>setup_complete</td><td align='left'  port='setup_complete'>:Check</td></tr>
+
+<tr><td align='left'>date_format</td><td align='left'  port='date_format'>:Select</td></tr>
+
+<tr><td align='left'>number_format</td><td align='left'  port='number_format'>:Select</td></tr>
+
+<tr><td align='left'>float_precision</td><td align='left'  port='float_precision'>:Select</td></tr>
+
+<tr><td align='left'>currency_precision</td><td align='left'  port='currency_precision'>:Select</td></tr>
+
+<tr><td align='left'>backup_limit</td><td align='left'  port='backup_limit'>:Int</td></tr>
+
+<tr><td align='left'>enable_scheduler</td><td align='left'  port='enable_scheduler'>:Check</td></tr>
+
+<tr><td align='left'>scheduler_last_event</td><td align='left'  port='scheduler_last_event'>:Data</td></tr>
+
+<tr><td align='left'>apply_strict_user_permissions</td><td align='left'  port='apply_strict_user_permissions'>:Check</td></tr>
+
+<tr><td align='left'>session_expiry</td><td align='left'  port='session_expiry'>:Data</td></tr>
+
+<tr><td align='left'>session_expiry_mobile</td><td align='left'  port='session_expiry_mobile'>:Data</td></tr>
+
+<tr><td align='left'>deny_multiple_sessions</td><td align='left'  port='deny_multiple_sessions'>:Check</td></tr>
+
+<tr><td align='left'>allow_login_using_mobile_number</td><td align='left'  port='allow_login_using_mobile_number'>:Check</td></tr>
+
+<tr><td align='left'>allow_login_using_user_name</td><td align='left'  port='allow_login_using_user_name'>:Check</td></tr>
+
+<tr><td align='left'>allow_error_traceback</td><td align='left'  port='allow_error_traceback'>:Check</td></tr>
+
+<tr><td align='left'>force_user_to_reset_password</td><td align='left'  port='force_user_to_reset_password'>:Int</td></tr>
+
+<tr><td align='left'>enable_password_policy</td><td align='left'  port='enable_password_policy'>:Check</td></tr>
+
+<tr><td align='left'>minimum_password_score</td><td align='left'  port='minimum_password_score'>:Select</td></tr>
+
+<tr><td align='left'>allow_consecutive_login_attempts</td><td align='left'  port='allow_consecutive_login_attempts'>:Int</td></tr>
+
+<tr><td align='left'>allow_login_after_fail</td><td align='left'  port='allow_login_after_fail'>:Int</td></tr>
+
+<tr><td align='left'>enable_two_factor_auth</td><td align='left'  port='enable_two_factor_auth'>:Check</td></tr>
+
+<tr><td align='left'>bypass_2fa_for_retricted_ip_users</td><td align='left'  port='bypass_2fa_for_retricted_ip_users'>:Check</td></tr>
+
+<tr><td align='left'>bypass_restrict_ip_check_if_2fa_enabled</td><td align='left'  port='bypass_restrict_ip_check_if_2fa_enabled'>:Check</td></tr>
+
+<tr><td align='left'>two_factor_method</td><td align='left'  port='two_factor_method'>:Select</td></tr>
+
+<tr><td align='left'>lifespan_qrcode_image</td><td align='left'  port='lifespan_qrcode_image'>:Int</td></tr>
+
+<tr><td align='left'>otp_issuer_name</td><td align='left'  port='otp_issuer_name'>:Data</td></tr>
+
+<tr><td align='left'>email_footer_address</td><td align='left'  port='email_footer_address'>:Small Text</td></tr>
+
+<tr><td align='left'>disable_standard_email_footer</td><td align='left'  port='disable_standard_email_footer'>:Check</td></tr>
+
+<tr><td align='left'>hide_footer_in_auto_email_reports</td><td align='left'  port='hide_footer_in_auto_email_reports'>:Check</td></tr>
+
+<tr><td align='left'>enable_chat</td><td align='left'  port='enable_chat'>:Check</td></tr>
+
+<tr><td align='left'>use_socketio_to_upload_file</td><td align='left'  port='use_socketio_to_upload_file'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Role[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Role</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>role_name</td><td align='left'  port='role_name'>:Data</td></tr>
+
+<tr><td align='left'>disabled</td><td align='left'  port='disabled'>:Check</td></tr>
+
+<tr><td align='left'>desk_access</td><td align='left'  port='desk_access'>:Check</td></tr>
+
+<tr><td align='left'>two_factor_auth</td><td align='left'  port='two_factor_auth'>:Check</td></tr>
+
+<tr><td align='left'>restrict_to_domain</td><td align='left'  port='restrict_to_domain'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+PaymentGateway[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Payment Gateway</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>gateway</td><td align='left'  port='gateway'>:Data</td></tr>
+
+<tr><td align='left'>gateway_settings</td><td align='left'  port='gateway_settings'>:Link</td></tr>
+
+<tr><td align='left'>gateway_controller</td><td align='left'  port='gateway_controller'>:Dynamic Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+TransactionLog[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Transaction Log</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>row_index</td><td align='left'  port='row_index'>:Data</td></tr>
+
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Data</td></tr>
+
+<tr><td align='left'>document_name</td><td align='left'  port='document_name'>:Data</td></tr>
+
+<tr><td align='left'>timestamp</td><td align='left'  port='timestamp'>:Datetime</td></tr>
+
+<tr><td align='left'>checksum_version</td><td align='left'  port='checksum_version'>:Data</td></tr>
+
+<tr><td align='left'>previous_hash</td><td align='left'  port='previous_hash'>:Small Text</td></tr>
+
+<tr><td align='left'>transaction_hash</td><td align='left'  port='transaction_hash'>:Small Text</td></tr>
+
+<tr><td align='left'>chaining_hash</td><td align='left'  port='chaining_hash'>:Small Text</td></tr>
+
+<tr><td align='left'>data</td><td align='left'  port='data'>:Long Text</td></tr>
+
+<tr><td align='left'>amended_from</td><td align='left'  port='amended_from'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DomainSettings[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Domain Settings</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>domains_html</td><td align='left'  port='domains_html'>:HTML</td></tr>
+
+<tr><td align='left'>active_domains</td><td align='left'  port='active_domains'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Translation[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Translation</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>language</td><td align='left'  port='language'>:Link</td></tr>
+
+<tr><td align='left'>source_name</td><td align='left'  port='source_name'>:Code</td></tr>
+
+<tr><td align='left'>target_name</td><td align='left'  port='target_name'>:Code</td></tr>
+
+<tr><td align='left'>status</td><td align='left'  port='status'>:Select</td></tr>
+
+<tr><td align='left'>contributed_translation_doctype_name</td><td align='left'  port='contributed_translation_doctype_name'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+User[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>User</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>enabled</td><td align='left'  port='enabled'>:Check</td></tr>
+
+<tr><td align='left'>email</td><td align='left'  port='email'>:Data</td></tr>
+
+<tr><td align='left'>first_name</td><td align='left'  port='first_name'>:Data</td></tr>
+
+<tr><td align='left'>middle_name</td><td align='left'  port='middle_name'>:Data</td></tr>
+
+<tr><td align='left'>last_name</td><td align='left'  port='last_name'>:Data</td></tr>
+
+<tr><td align='left'>full_name</td><td align='left'  port='full_name'>:Data</td></tr>
+
+<tr><td align='left'>send_welcome_email</td><td align='left'  port='send_welcome_email'>:Check</td></tr>
+
+<tr><td align='left'>unsubscribed</td><td align='left'  port='unsubscribed'>:Check</td></tr>
+
+<tr><td align='left'>username</td><td align='left'  port='username'>:Data</td></tr>
+
+<tr><td align='left'>language</td><td align='left'  port='language'>:Link</td></tr>
+
+<tr><td align='left'>time_zone</td><td align='left'  port='time_zone'>:Select</td></tr>
+
+<tr><td align='left'>user_image</td><td align='left'  port='user_image'>:Attach Image</td></tr>
+
+<tr><td align='left'>role_profile_name</td><td align='left'  port='role_profile_name'>:Link</td></tr>
+
+<tr><td align='left'>roles_html</td><td align='left'  port='roles_html'>:HTML</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+
+<tr><td align='left'>gender</td><td align='left'  port='gender'>:Link</td></tr>
+
+<tr><td align='left'>phone</td><td align='left'  port='phone'>:Data</td></tr>
+
+<tr><td align='left'>mobile_no</td><td align='left'  port='mobile_no'>:Data</td></tr>
+
+<tr><td align='left'>birth_date</td><td align='left'  port='birth_date'>:Date</td></tr>
+
+<tr><td align='left'>location</td><td align='left'  port='location'>:Data</td></tr>
+
+<tr><td align='left'>banner_image</td><td align='left'  port='banner_image'>:Attach Image</td></tr>
+
+<tr><td align='left'>interest</td><td align='left'  port='interest'>:Small Text</td></tr>
+
+<tr><td align='left'>bio</td><td align='left'  port='bio'>:Small Text</td></tr>
+
+<tr><td align='left'>mute_sounds</td><td align='left'  port='mute_sounds'>:Check</td></tr>
+
+<tr><td align='left'>new_password</td><td align='left'  port='new_password'>:Password</td></tr>
+
+<tr><td align='left'>send_password_update_notification</td><td align='left'  port='send_password_update_notification'>:Check</td></tr>
+
+<tr><td align='left'>logout_all_sessions</td><td align='left'  port='logout_all_sessions'>:Check</td></tr>
+
+<tr><td align='left'>reset_password_key</td><td align='left'  port='reset_password_key'>:Data</td></tr>
+
+<tr><td align='left'>last_password_reset_date</td><td align='left'  port='last_password_reset_date'>:Date</td></tr>
+
+<tr><td align='left'>redirect_url</td><td align='left'  port='redirect_url'>:Small Text</td></tr>
+
+<tr><td align='left'>document_follow_notify</td><td align='left'  port='document_follow_notify'>:Check</td></tr>
+
+<tr><td align='left'>document_follow_frequency</td><td align='left'  port='document_follow_frequency'>:Select</td></tr>
+
+<tr><td align='left'>thread_notify</td><td align='left'  port='thread_notify'>:Check</td></tr>
+
+<tr><td align='left'>send_me_a_copy</td><td align='left'  port='send_me_a_copy'>:Check</td></tr>
+
+<tr><td align='left'>allowed_in_mentions</td><td align='left'  port='allowed_in_mentions'>:Check</td></tr>
+
+<tr><td align='left'>email_signature</td><td align='left'  port='email_signature'>:Small Text</td></tr>
+
+<tr><td align='left'>user_emails</td><td align='left'  port='user_emails'>:Table</td></tr>
+
+<tr><td align='left'>background_image</td><td align='left'  port='background_image'>:Attach</td></tr>
+
+<tr><td align='left'>background_style</td><td align='left'  port='background_style'>:Select</td></tr>
+
+<tr><td align='left'>modules_html</td><td align='left'  port='modules_html'>:HTML</td></tr>
+
+<tr><td align='left'>block_modules</td><td align='left'  port='block_modules'>:Table</td></tr>
+
+<tr><td align='left'>home_settings</td><td align='left'  port='home_settings'>:Code</td></tr>
+
+<tr><td align='left'>defaults</td><td align='left'  port='defaults'>:Table</td></tr>
+
+<tr><td align='left'>simultaneous_sessions</td><td align='left'  port='simultaneous_sessions'>:Int</td></tr>
+
+<tr><td align='left'>user_type</td><td align='left'  port='user_type'>:Select</td></tr>
+
+<tr><td align='left'>login_after</td><td align='left'  port='login_after'>:Int</td></tr>
+
+<tr><td align='left'>login_before</td><td align='left'  port='login_before'>:Int</td></tr>
+
+<tr><td align='left'>restrict_ip</td><td align='left'  port='restrict_ip'>:Data</td></tr>
+
+<tr><td align='left'>bypass_restrict_ip_check_if_2fa_enabled</td><td align='left'  port='bypass_restrict_ip_check_if_2fa_enabled'>:Check</td></tr>
+
+<tr><td align='left'>last_login</td><td align='left'  port='last_login'>:Read Only</td></tr>
+
+<tr><td align='left'>last_ip</td><td align='left'  port='last_ip'>:Read Only</td></tr>
+
+<tr><td align='left'>last_active</td><td align='left'  port='last_active'>:Datetime</td></tr>
+
+<tr><td align='left'>last_known_versions</td><td align='left'  port='last_known_versions'>:Text</td></tr>
+
+<tr><td align='left'>social_logins</td><td align='left'  port='social_logins'>:Table</td></tr>
+
+<tr><td align='left'>api_key</td><td align='left'  port='api_key'>:Data</td></tr>
+
+<tr><td align='left'>generate_keys</td><td align='left'  port='generate_keys'>:Button</td></tr>
+
+<tr><td align='left'>api_secret</td><td align='left'  port='api_secret'>:Password</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DeletedDocument[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Deleted Document</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>deleted_name</td><td align='left'  port='deleted_name'>:Data</td></tr>
+
+<tr><td align='left'>deleted_doctype</td><td align='left'  port='deleted_doctype'>:Data</td></tr>
+
+<tr><td align='left'>restored</td><td align='left'  port='restored'>:Check</td></tr>
+
+<tr><td align='left'>new_name</td><td align='left'  port='new_name'>:Read Only</td></tr>
+
+<tr><td align='left'>data</td><td align='left'  port='data'>:Code</td></tr>
+</table></td></tr>
+</table>
+>];
+
+ErrorLog[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Error Log</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>seen</td><td align='left'  port='seen'>:Check</td></tr>
+
+<tr><td align='left'>method</td><td align='left'  port='method'>:Data</td></tr>
+
+<tr><td align='left'>error</td><td align='left'  port='error'>:Code</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Language[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Language</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>language_code</td><td align='left'  port='language_code'>:Data</td></tr>
+
+<tr><td align='left'>language_name</td><td align='left'  port='language_name'>:Data</td></tr>
+
+<tr><td align='left'>flag</td><td align='left'  port='flag'>:Data</td></tr>
+
+<tr><td align='left'>based_on</td><td align='left'  port='based_on'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+HasDomain[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Has Domain</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>domain</td><td align='left'  port='domain'>:Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DocType[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>DocType</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>module</td><td align='left'  port='module'>:Link</td></tr>
+
+<tr><td align='left'>is_submittable</td><td align='left'  port='is_submittable'>:Check</td></tr>
+
+<tr><td align='left'>istable</td><td align='left'  port='istable'>:Check</td></tr>
+
+<tr><td align='left'>issingle</td><td align='left'  port='issingle'>:Check</td></tr>
+
+<tr><td align='left'>editable_grid</td><td align='left'  port='editable_grid'>:Check</td></tr>
+
+<tr><td align='left'>quick_entry</td><td align='left'  port='quick_entry'>:Check</td></tr>
+
+<tr><td align='left'>track_changes</td><td align='left'  port='track_changes'>:Check</td></tr>
+
+<tr><td align='left'>track_seen</td><td align='left'  port='track_seen'>:Check</td></tr>
+
+<tr><td align='left'>track_views</td><td align='left'  port='track_views'>:Check</td></tr>
+
+<tr><td align='left'>custom</td><td align='left'  port='custom'>:Check</td></tr>
+
+<tr><td align='left'>beta</td><td align='left'  port='beta'>:Check</td></tr>
+
+<tr><td align='left'>fields</td><td align='left'  port='fields'>:Table</td></tr>
+
+<tr><td align='left'>autoname</td><td align='left'  port='autoname'>:Data</td></tr>
+
+<tr><td align='left'>name_case</td><td align='left'  port='name_case'>:Select</td></tr>
+
+<tr><td align='left'>description</td><td align='left'  port='description'>:Small Text</td></tr>
+
+<tr><td align='left'>image_field</td><td align='left'  port='image_field'>:Data</td></tr>
+
+<tr><td align='left'>timeline_field</td><td align='left'  port='timeline_field'>:Data</td></tr>
+
+<tr><td align='left'>max_attachments</td><td align='left'  port='max_attachments'>:Int</td></tr>
+
+<tr><td align='left'>hide_toolbar</td><td align='left'  port='hide_toolbar'>:Check</td></tr>
+
+<tr><td align='left'>allow_copy</td><td align='left'  port='allow_copy'>:Check</td></tr>
+
+<tr><td align='left'>allow_rename</td><td align='left'  port='allow_rename'>:Check</td></tr>
+
+<tr><td align='left'>allow_import</td><td align='left'  port='allow_import'>:Check</td></tr>
+
+<tr><td align='left'>allow_events_in_timeline</td><td align='left'  port='allow_events_in_timeline'>:Check</td></tr>
+
+<tr><td align='left'>allow_auto_repeat</td><td align='left'  port='allow_auto_repeat'>:Check</td></tr>
+
+<tr><td align='left'>title_field</td><td align='left'  port='title_field'>:Data</td></tr>
+
+<tr><td align='left'>search_fields</td><td align='left'  port='search_fields'>:Data</td></tr>
+
+<tr><td align='left'>default_print_format</td><td align='left'  port='default_print_format'>:Data</td></tr>
+
+<tr><td align='left'>sort_field</td><td align='left'  port='sort_field'>:Data</td></tr>
+
+<tr><td align='left'>sort_order</td><td align='left'  port='sort_order'>:Select</td></tr>
+
+<tr><td align='left'>document_type</td><td align='left'  port='document_type'>:Select</td></tr>
+
+<tr><td align='left'>icon</td><td align='left'  port='icon'>:Data</td></tr>
+
+<tr><td align='left'>color</td><td align='left'  port='color'>:Data</td></tr>
+
+<tr><td align='left'>show_preview_popup</td><td align='left'  port='show_preview_popup'>:Check</td></tr>
+
+<tr><td align='left'>show_name_in_global_search</td><td align='left'  port='show_name_in_global_search'>:Check</td></tr>
+
+<tr><td align='left'>permissions</td><td align='left'  port='permissions'>:Table</td></tr>
+
+<tr><td align='left'>restrict_to_domain</td><td align='left'  port='restrict_to_domain'>:Link</td></tr>
+
+<tr><td align='left'>read_only</td><td align='left'  port='read_only'>:Check</td></tr>
+
+<tr><td align='left'>in_create</td><td align='left'  port='in_create'>:Check</td></tr>
+
+<tr><td align='left'>has_web_view</td><td align='left'  port='has_web_view'>:Check</td></tr>
+
+<tr><td align='left'>allow_guest_to_view</td><td align='left'  port='allow_guest_to_view'>:Check</td></tr>
+
+<tr><td align='left'>route</td><td align='left'  port='route'>:Data</td></tr>
+
+<tr><td align='left'>is_published_field</td><td align='left'  port='is_published_field'>:Data</td></tr>
+
+<tr><td align='left'>engine</td><td align='left'  port='engine'>:Select</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Domain[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Domain</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>domain</td><td align='left'  port='domain'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+File[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>File</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>file_name</td><td align='left'  port='file_name'>:Data</td></tr>
+
+<tr><td align='left'>is_private</td><td align='left'  port='is_private'>:Check</td></tr>
+
+<tr><td align='left'>preview_html</td><td align='left'  port='preview_html'>:HTML</td></tr>
+
+<tr><td align='left'>is_home_folder</td><td align='left'  port='is_home_folder'>:Check</td></tr>
+
+<tr><td align='left'>is_attachments_folder</td><td align='left'  port='is_attachments_folder'>:Check</td></tr>
+
+<tr><td align='left'>file_size</td><td align='left'  port='file_size'>:Int</td></tr>
+
+<tr><td align='left'>file_url</td><td align='left'  port='file_url'>:Code</td></tr>
+
+<tr><td align='left'>thumbnail_url</td><td align='left'  port='thumbnail_url'>:Small Text</td></tr>
+
+<tr><td align='left'>folder</td><td align='left'  port='folder'>:Link</td></tr>
+
+<tr><td align='left'>is_folder</td><td align='left'  port='is_folder'>:Check</td></tr>
+
+<tr><td align='left'>attached_to_doctype</td><td align='left'  port='attached_to_doctype'>:Link</td></tr>
+
+<tr><td align='left'>attached_to_name</td><td align='left'  port='attached_to_name'>:Data</td></tr>
+
+<tr><td align='left'>attached_to_field</td><td align='left'  port='attached_to_field'>:Data</td></tr>
+
+<tr><td align='left'>lft</td><td align='left'  port='lft'>:Int</td></tr>
+
+<tr><td align='left'>rgt</td><td align='left'  port='rgt'>:Int</td></tr>
+
+<tr><td align='left'>old_parent</td><td align='left'  port='old_parent'>:Data</td></tr>
+
+<tr><td align='left'>content_hash</td><td align='left'  port='content_hash'>:Data</td></tr>
+
+<tr><td align='left'>uploaded_to_dropbox</td><td align='left'  port='uploaded_to_dropbox'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Comment[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Comment</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>comment_type</td><td align='left'  port='comment_type'>:Select</td></tr>
+
+<tr><td align='left'>comment_email</td><td align='left'  port='comment_email'>:Data</td></tr>
+
+<tr><td align='left'>subject</td><td align='left'  port='subject'>:Text</td></tr>
+
+<tr><td align='left'>comment_by</td><td align='left'  port='comment_by'>:Data</td></tr>
+
+<tr><td align='left'>published</td><td align='left'  port='published'>:Check</td></tr>
+
+<tr><td align='left'>seen</td><td align='left'  port='seen'>:Check</td></tr>
+
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>reference_name</td><td align='left'  port='reference_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>link_doctype</td><td align='left'  port='link_doctype'>:Link</td></tr>
+
+<tr><td align='left'>link_name</td><td align='left'  port='link_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>reference_owner</td><td align='left'  port='reference_owner'>:Data</td></tr>
+
+<tr><td align='left'>content</td><td align='left'  port='content'>:HTML Editor</td></tr>
+</table></td></tr>
+</table>
+>];
+
+CustomRole[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Custom Role</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>page</td><td align='left'  port='page'>:Link</td></tr>
+
+<tr><td align='left'>report</td><td align='left'  port='report'>:Link</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+
+<tr><td align='left'>response</td><td align='left'  port='response'>:HTML</td></tr>
+
+<tr><td align='left'>ref_doctype</td><td align='left'  port='ref_doctype'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Communication[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Communication</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>subject</td><td align='left'  port='subject'>:Small Text</td></tr>
+
+<tr><td align='left'>communication_medium</td><td align='left'  port='communication_medium'>:Select</td></tr>
+
+<tr><td align='left'>sender</td><td align='left'  port='sender'>:Data</td></tr>
+
+<tr><td align='left'>recipients</td><td align='left'  port='recipients'>:Code</td></tr>
+
+<tr><td align='left'>cc</td><td align='left'  port='cc'>:Code</td></tr>
+
+<tr><td align='left'>bcc</td><td align='left'  port='bcc'>:Code</td></tr>
+
+<tr><td align='left'>phone_no</td><td align='left'  port='phone_no'>:Data</td></tr>
+
+<tr><td align='left'>delivery_status</td><td align='left'  port='delivery_status'>:Select</td></tr>
+
+<tr><td align='left'>content</td><td align='left'  port='content'>:Text Editor</td></tr>
+
+<tr><td align='left'>text_content</td><td align='left'  port='text_content'>:Code</td></tr>
+
+<tr><td align='left'>communication_type</td><td align='left'  port='communication_type'>:Select</td></tr>
+
+<tr><td align='left'>comment_type</td><td align='left'  port='comment_type'>:Select</td></tr>
+
+<tr><td align='left'>status</td><td align='left'  port='status'>:Select</td></tr>
+
+<tr><td align='left'>sent_or_received</td><td align='left'  port='sent_or_received'>:Select</td></tr>
+
+<tr><td align='left'>communication_date</td><td align='left'  port='communication_date'>:Datetime</td></tr>
+
+<tr><td align='left'>read_receipt</td><td align='left'  port='read_receipt'>:Check</td></tr>
+
+<tr><td align='left'>sender_full_name</td><td align='left'  port='sender_full_name'>:Data</td></tr>
+
+<tr><td align='left'>read_by_recipient</td><td align='left'  port='read_by_recipient'>:Check</td></tr>
+
+<tr><td align='left'>read_by_recipient_on</td><td align='left'  port='read_by_recipient_on'>:Datetime</td></tr>
+
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>reference_name</td><td align='left'  port='reference_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>reference_owner</td><td align='left'  port='reference_owner'>:Read Only</td></tr>
+
+<tr><td align='left'>email_account</td><td align='left'  port='email_account'>:Link</td></tr>
+
+<tr><td align='left'>in_reply_to</td><td align='left'  port='in_reply_to'>:Link</td></tr>
+
+<tr><td align='left'>user</td><td align='left'  port='user'>:Link</td></tr>
+
+<tr><td align='left'>unread_notification_sent</td><td align='left'  port='unread_notification_sent'>:Check</td></tr>
+
+<tr><td align='left'>seen</td><td align='left'  port='seen'>:Check</td></tr>
+
+<tr><td align='left'>_user_tags</td><td align='left'  port='_user_tags'>:Data</td></tr>
+
+<tr><td align='left'>message_id</td><td align='left'  port='message_id'>:Data</td></tr>
+
+<tr><td align='left'>uid</td><td align='left'  port='uid'>:Int</td></tr>
+
+<tr><td align='left'>email_status</td><td align='left'  port='email_status'>:Select</td></tr>
+
+<tr><td align='left'>has_attachment</td><td align='left'  port='has_attachment'>:Check</td></tr>
+
+<tr><td align='left'>rating</td><td align='left'  port='rating'>:Int</td></tr>
+
+<tr><td align='left'>feedback_request</td><td align='left'  port='feedback_request'>:Data</td></tr>
+
+<tr><td align='left'>email_template</td><td align='left'  port='email_template'>:Link</td></tr>
+
+<tr><td align='left'>timeline_links</td><td align='left'  port='timeline_links'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+PatchLog[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Patch Log</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>patch</td><td align='left'  port='patch'>:Code</td></tr>
+</table></td></tr>
+</table>
+>];
+
+TestRunner[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Test Runner</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>module_path</td><td align='left'  port='module_path'>:Data</td></tr>
+
+<tr><td align='left'>app</td><td align='left'  port='app'>:Data</td></tr>
+
+<tr><td align='left'>output</td><td align='left'  port='output'>:HTML</td></tr>
+</table></td></tr>
+</table>
+>];
+
+UserEmail[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>User Email</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>email_account</td><td align='left'  port='email_account'>:Link</td></tr>
+
+<tr><td align='left'>email_id</td><td align='left'  port='email_id'>:Data</td></tr>
+
+<tr><td align='left'>awaiting_password</td><td align='left'  port='awaiting_password'>:Check</td></tr>
+
+<tr><td align='left'>enable_outgoing</td><td align='left'  port='enable_outgoing'>:Check</td></tr>
+</table></td></tr>
+</table>
+>];
+
+PreparedReport[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Prepared Report</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>report_name</td><td align='left'  port='report_name'>:Data</td></tr>
+
+<tr><td align='left'>ref_report_doctype</td><td align='left'  port='ref_report_doctype'>:Link</td></tr>
+
+<tr><td align='left'>status</td><td align='left'  port='status'>:Select</td></tr>
+
+<tr><td align='left'>report_start_time</td><td align='left'  port='report_start_time'>:Datetime</td></tr>
+
+<tr><td align='left'>report_end_time</td><td align='left'  port='report_end_time'>:Datetime</td></tr>
+
+<tr><td align='left'>error_message</td><td align='left'  port='error_message'>:Text</td></tr>
+
+<tr><td align='left'>filters</td><td align='left'  port='filters'>:Small Text</td></tr>
+
+<tr><td align='left'>filter_values</td><td align='left'  port='filter_values'>:HTML</td></tr>
+
+<tr><td align='left'>columns</td><td align='left'  port='columns'>:Code</td></tr>
+</table></td></tr>
+</table>
+>];
+
+CommunicationLink[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Communication Link</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>link_doctype</td><td align='left'  port='link_doctype'>:Link</td></tr>
+
+<tr><td align='left'>link_name</td><td align='left'  port='link_name'>:Dynamic Link</td></tr>
+
+<tr><td align='left'>link_title</td><td align='left'  port='link_title'>:Read Only</td></tr>
+</table></td></tr>
+</table>
+>];
+
+ViewLog[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>View Log</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>viewed_by</td><td align='left'  port='viewed_by'>:Data</td></tr>
+
+<tr><td align='left'>reference_doctype</td><td align='left'  port='reference_doctype'>:Link</td></tr>
+
+<tr><td align='left'>reference_name</td><td align='left'  port='reference_name'>:Dynamic Link</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DefaultValue[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>DefaultValue</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>defkey</td><td align='left'  port='defkey'>:Data</td></tr>
+
+<tr><td align='left'>defvalue</td><td align='left'  port='defvalue'>:Text</td></tr>
+</table></td></tr>
+</table>
+>];
+
+Page[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>Page</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>system_page</td><td align='left'  port='system_page'>:Check</td></tr>
+
+<tr><td align='left'>page_name</td><td align='left'  port='page_name'>:Data</td></tr>
+
+<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
+
+<tr><td align='left'>icon</td><td align='left'  port='icon'>:Data</td></tr>
+
+<tr><td align='left'>module</td><td align='left'  port='module'>:Link</td></tr>
+
+<tr><td align='left'>restrict_to_domain</td><td align='left'  port='restrict_to_domain'>:Link</td></tr>
+
+<tr><td align='left'>standard</td><td align='left'  port='standard'>:Select</td></tr>
+
+<tr><td align='left'>roles</td><td align='left'  port='roles'>:Table</td></tr>
+</table></td></tr>
+</table>
+>];
+
+DocField[
+shape=plaintext
+label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
+<tr><td>DocField</td></tr>
+<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>label</td><td align='left'  port='label'>:Data</td></tr>
+
+<tr><td align='left'>fieldtype</td><td align='left'  port='fieldtype'>:Select</td></tr>
+
+<tr><td align='left'>fieldname</td><td align='left'  port='fieldname'>:Data</td></tr>
+
+<tr><td align='left'>reqd</td><td align='left'  port='reqd'>:Check</td></tr>
+
+<tr><td align='left'>precision</td><td align='left'  port='precision'>:Select</td></tr>
+
+<tr><td align='left'>length</td><td align='left'  port='length'>:Int</td></tr>
+
+<tr><td align='left'>search_index</td><td align='left'  port='search_index'>:Check</td></tr>
+
+<tr><td align='left'>in_list_view</td><td align='left'  port='in_list_view'>:Check</td></tr>
+
+<tr><td align='left'>in_standard_filter</td><td align='left'  port='in_standard_filter'>:Check</td></tr>
+
+<tr><td align='left'>in_global_search</td><td align='left'  port='in_global_search'>:Check</td></tr>
+
+<tr><td align='left'>in_preview</td><td align='left'  port='in_preview'>:Check</td></tr>
+
+<tr><td align='left'>allow_in_quick_entry</td><td align='left'  port='allow_in_quick_entry'>:Check</td></tr>
+
+<tr><td align='left'>bold</td><td align='left'  port='bold'>:Check</td></tr>
+
+<tr><td align='left'>translatable</td><td align='left'  port='translatable'>:Check</td></tr>
+
+<tr><td align='left'>collapsible</td><td align='left'  port='collapsible'>:Check</td></tr>
+
+<tr><td align='left'>collapsible_depends_on</td><td align='left'  port='collapsible_depends_on'>:Code</td></tr>
+
+<tr><td align='left'>options</td><td align='left'  port='options'>:Small Text</td></tr>
+
+<tr><td align='left'>default</td><td align='left'  port='default'>:Small Text</td></tr>
+
+<tr><td align='left'>fetch_from</td><td align='left'  port='fetch_from'>:Small Text</td></tr>
+
+<tr><td align='left'>fetch_if_empty</td><td align='left'  port='fetch_if_empty'>:Check</td></tr>
+
+<tr><td align='left'>depends_on</td><td align='left'  port='depends_on'>:Code</td></tr>
+
+<tr><td align='left'>hidden</td><td align='left'  port='hidden'>:Check</td></tr>
+
+<tr><td align='left'>read_only</td><td align='left'  port='read_only'>:Check</td></tr>
+
+<tr><td align='left'>unique</td><td align='left'  port='unique'>:Check</td></tr>
+
+<tr><td align='left'>set_only_once</td><td align='left'  port='set_only_once'>:Check</td></tr>
+
+<tr><td align='left'>allow_bulk_edit</td><td align='left'  port='allow_bulk_edit'>:Check</td></tr>
+
+<tr><td align='left'>permlevel</td><td align='left'  port='permlevel'>:Int</td></tr>
+
+<tr><td align='left'>ignore_user_permissions</td><td align='left'  port='ignore_user_permissions'>:Check</td></tr>
+
+<tr><td align='left'>allow_on_submit</td><td align='left'  port='allow_on_submit'>:Check</td></tr>
+
+<tr><td align='left'>report_hide</td><td align='left'  port='report_hide'>:Check</td></tr>
+
+<tr><td align='left'>remember_last_selected_value</td><td align='left'  port='remember_last_selected_value'>:Check</td></tr>
+
+<tr><td align='left'>ignore_xss_filter</td><td align='left'  port='ignore_xss_filter'>:Check</td></tr>
+
+<tr><td align='left'>in_filter</td><td align='left'  port='in_filter'>:Check</td></tr>
+
+<tr><td align='left'>no_copy</td><td align='left'  port='no_copy'>:Check</td></tr>
+
+<tr><td align='left'>print_hide</td><td align='left'  port='print_hide'>:Check</td></tr>
+
+<tr><td align='left'>print_hide_if_no_value</td><td align='left'  port='print_hide_if_no_value'>:Check</td></tr>
+
+<tr><td align='left'>print_width</td><td align='left'  port='print_width'>:Data</td></tr>
+
+<tr><td align='left'>width</td><td align='left'  port='width'>:Data</td></tr>
+
+<tr><td align='left'>columns</td><td align='left'  port='columns'>:Int</td></tr>
+
+<tr><td align='left'>description</td><td align='left'  port='description'>:Small Text</td></tr>
+
+<tr><td align='left'>oldfieldname</td><td align='left'  port='oldfieldname'>:Data</td></tr>
+
+<tr><td align='left'>oldfieldtype</td><td align='left'  port='oldfieldtype'>:Data</td></tr>
+</table></td></tr>
+</table>
+>];ActivityLog:reference_doctype -> DocType
+ActivityLog:timeline_doctype -> DocType
+ActivityLog:link_doctype -> DocType
+ActivityLog:user -> User
+Report:ref_doctype -> DocType
+Report:module -> ModuleDef
+Report:letter_head -> LetterHead
+DocShare:user -> User
+DocShare:share_doctype -> DocType
+RolePermissionforPageandReport:page -> Page
+RolePermissionforPageandReport:report -> Report
+CustomDocPerm:role -> Role
+DynamicLink:link_doctype -> DocType
+HasRole:role -> Role
+DocPerm:role -> Role
+SuccessAction:ref_doctype -> DocType
+TagDocCategory:tagdoc -> DocType
+Version:ref_doctype -> DocType
+DataImport:reference_doctype -> DocType
+DataImport:amended_from -> DataImport
+UserPermission:user -> User
+UserPermission:allow -> DocType
+UserPermission:applicable_for -> DocType
+DataExport:reference_doctype -> DocType
+ModuleDef:restrict_to_domain -> Domain
+SystemSettings:country -> Country
+SystemSettings:language -> Language
+Role:restrict_to_domain -> Domain
+PaymentGateway:gateway_settings -> DocType
+TransactionLog:amended_from -> TransactionLog
+Translation:language -> Language
+User:language -> Language
+User:role_profile_name -> RoleProfile
+User:gender -> Gender
+Language:based_on -> Language
+HasDomain:domain -> Domain
+DocType:module -> ModuleDef
+DocType:restrict_to_domain -> Domain
+File:folder -> File
+File:attached_to_doctype -> DocType
+Comment:reference_doctype -> DocType
+Comment:link_doctype -> DocType
+CustomRole:page -> Page
+CustomRole:report -> Report
+Communication:reference_doctype -> DocType
+Communication:email_account -> EmailAccount
+Communication:in_reply_to -> Communication
+Communication:user -> User
+Communication:email_template -> EmailTemplate
+UserEmail:email_account -> EmailAccount
+PreparedReport:ref_report_doctype -> Report
+CommunicationLink:link_doctype -> DocType
+ViewLog:reference_doctype -> DocType
+Page:module -> ModuleDef
+Page:restrict_to_domain -> Domain}
