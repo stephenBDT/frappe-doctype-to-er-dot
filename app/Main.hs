@@ -21,16 +21,27 @@ import Data.Semigroup ((<>))
 
 data Sample = Sample
   { hello      :: Maybe String
+  , noFields :: Bool
+  , onlyLinkFields :: Bool
   , pngOut      :: Maybe String
   , filePath      :: String }
 
 sample :: Parser Sample
 sample = Sample
-      <$> optional (strOption
-          ( long "hello"
-         <> metavar "TARGET"
-         <> help "Target for the greeting" ))
-      <*> optional (strOption
+  <$> optional (
+    strOption
+    ( long "hello"
+      <> metavar "TARGET"
+      <> help "Target for the greeting" ))
+  <*> switch
+      ( long "no-fields"
+      <> short 'q'
+      <> help "Whether to include datafields at all" )
+  <*> switch
+      ( long "only-link-fields"
+      <> short 'l'
+      <> help "Whether to show only Links" )
+  <*> optional (strOption
           ( long "png-file"
          <> metavar "TARGET"
          <> short 'p'

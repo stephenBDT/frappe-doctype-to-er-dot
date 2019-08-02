@@ -37,7 +37,7 @@ docListToNodes docs =
                            getLinks (nodeId x) $ fields x)) docs
   where genRelevantNodeFields fields=
           L.map mkNodeFields
-          $ L.filter ((`elem` ["Section Break", "Column Break"]) . fieldname)
+          $ L.filter (not . (`elem` ["Section Break", "Column Break"]) . fieldname)
           fields
 
         mkNodeFields :: DocField -> G.NodeField
