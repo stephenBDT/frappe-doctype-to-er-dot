@@ -1,6 +1,5 @@
-module DocType.DocType
-  (
-  ) where
+{-# LANGUAGE DeriveGeneric #-}
+module DocType.DocType where
 
 import Data.Text as T
 import Data.List as L

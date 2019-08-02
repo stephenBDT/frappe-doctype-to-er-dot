@@ -1,22 +1,44 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric #-}
 
-module Graph
-  ( mkNode
+module Graph.Graph
+  ( Graph
+  , Node
+  , NodeField
+  , NodeLink
+  , NodeId(..)
+  , mkNode
+  , mkNodeId
+  , mkNodeLink
+  , mkGraph
   , mkNodeField
   , renderGraph
   ) where
+
+import GHC.Generics
+import Data.Text as T
+import Data.Maybe as M
+import Data.List as L
+
+mkNode = Node
+mkNodeField = NodeField
+mkGraph = Graph
+mkNodeLink = NodeLink
+
+mkNodeId :: String -> NodeId
+mkNodeId = NodeId . L.filter (/= ' ')
+
 
 data Node =
   Node { nodeName :: String
        , nodeId :: NodeId
        , nodeFields :: [NodeField]
+       , nodeColor :: String
        } deriving (Show, Eq, Ord)
 
 data NodeField =
   NodeField { fieldName :: String
-            , fieldId :: String
-            -- TODO (NodeId, String)
-            --NodeName in CamelCase and field_name in python notation
+            , fieldId :: String -- TODO (NodeId, String) --NodeName in CamelCase and field_name in python notation
             , fieldType :: String
             , fieldLink :: Maybe String
             } deriving (Show, Eq, Ord)
@@ -40,7 +62,7 @@ renderNode node = (unNodeId $ nodeId node) ++ "[\nshape=plaintext\nlabel=<" ++ m
     tableHead =
       "<tr><td>" ++ tableName ++ "</td></tr>\n"
     mainTbl =
-          "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
+          "<table border='0' cellborder='1' color='"++ nodeColor node ++"' cellspacing='0'>\n"
           ++ tableHead
           ++ subTable
           ++ "</table>\n"

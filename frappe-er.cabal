@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 60d905712153b5b79bd24c1a4d33601474f870a17a9743d8122a4ea58bfa13c0
+-- hash: b2c83f28c07bc9c51e59e03dca6201c78e02770ac83583e71656c0a9a0c0c9f0
 
 name:           frappe-er
 version:        0.1.0.0
@@ -27,8 +27,8 @@ source-repository head
 
 library
   exposed-modules:
+      DocType.DocGraph
       DocType.DocType
-      Graph.Dot
       Graph.Graph
       Lib
   other-modules:
@@ -40,6 +40,8 @@ library
     , base >=4.7 && <5
     , bytestring
     , directory
+    , optparse-applicative
+    , process
     , text
     , utf8-string
   default-language: Haskell2010
@@ -57,6 +59,8 @@ executable frappe-er-exe
     , bytestring
     , directory
     , frappe-er
+    , optparse-applicative
+    , process
     , text
     , utf8-string
   default-language: Haskell2010
@@ -75,6 +79,8 @@ test-suite frappe-er-test
     , bytestring
     , directory
     , frappe-er
+    , optparse-applicative
+    , process
     , text
     , utf8-string
   default-language: Haskell2010
