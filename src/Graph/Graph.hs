@@ -64,13 +64,15 @@ renderNode node = (unNodeId $ nodeId node) ++ "[\nshape=plaintext\nlabel=<" ++ m
     mainTbl =
           "<table border='0' cellborder='1' color='"++ nodeColor node ++"' cellspacing='0'>\n"
           ++ tableHead
-          ++ subTable
+          ++ (subTable $ nodeFields node)
           ++ "</table>\n"
-    subTable =
-      "<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>\n"
-      ++ tableFields
-      ++ "</table></td></tr>\n"
-    tableFields = L.intercalate "\n" $ L.map mkField $ nodeFields node
+    subTable fields =
+      case tableFields fields of
+        [] -> ""
+        fields -> "<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>\n"
+          ++ fields
+          ++ "</table></td></tr>\n"
+    tableFields = L.intercalate "\n" . L.map mkField
     mkField f =
       "<tr><td align='left'>" ++ fieldName f
       ++ "</td><td align='left'  port='" ++fieldId f ++ "'>:" ++ fieldType f

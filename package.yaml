@@ -16,6 +16,13 @@ extra-source-files:
 # synopsis:            Short description of your package
 # category:            Web
 
+
+  # ghc-options: -Wall -O2 -static -threaded
+ghc-options: -O2 -static -threaded
+cc-options: -static
+ld-options: -static -pthread
+# extra-lib-dirs: ./.system-work/lib
+
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.

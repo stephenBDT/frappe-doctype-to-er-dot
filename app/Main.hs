@@ -23,8 +23,8 @@ data Sample = Sample
   { hello      :: Maybe String
   , noFields :: Bool
   , onlyLinkFields :: Bool
-  , pngOut      :: Maybe String
-  , filePath      :: String }
+  , outFile      :: Maybe String
+  , filePath      :: [String] }
 
 sample :: Parser Sample
 sample = Sample
@@ -34,33 +34,33 @@ sample = Sample
       <> metavar "TARGET"
       <> help "Target for the greeting" ))
   <*> switch
-      ( long "no-fields"
-      <> short 'q'
+      ( long "show-fields"
+      <> short 'f'
       <> help "Whether to include datafields at all" )
   <*> switch
       ( long "only-link-fields"
       <> short 'l'
       <> help "Whether to show only Links" )
   <*> optional (strOption
-          ( long "png-file"
+          ( long "out"
          <> metavar "TARGET"
-         <> short 'p'
-         <> (help $ "if this is set, instead of writing the .dot, "
-            ++ "it will try using the 'dot' command to generate a png file" )))
+         <> short 'o'
+         <> (help $ "specify the output filename ")))
       -- <*> option auto
       --     ( long "enthusiasm"
       --    <> help "How enthusiastically to greet"
       --    <> showDefault
       --    <> value 1
       --    <> metavar "INT" )
-      <*> argument str (metavar "FILEPATH")
+      <*> many (argument str (metavar "FILEPATH"))
 
 
 main :: IO ()
 main = do
   args <- execParser opts
-  putStrLn $ "Generating ER for all doctypes found beneath" ++ (filePath args)
-  renderDocTypes $ filePath args
+  putStrLn $ "Generating ER for all doctypes found beneath"
+  mapM putStrLn (filePath args)
+  renderDocTypes (onlyLinkFields args) (fromMaybe "out.dot" $ outFile args) $ filePath args
   where
     opts = info (sample <**> helper)
       ( fullDesc
@@ -77,5 +77,4 @@ greet _ = return ()
 -- main = do
 --   currentDir <- listDirectory "/home/steffen/Bilder"
 --   _ <- mapM putStrLn currentDir
---   
 

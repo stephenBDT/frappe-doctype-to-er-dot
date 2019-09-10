@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b2c83f28c07bc9c51e59e03dca6201c78e02770ac83583e71656c0a9a0c0c9f0
+-- hash: fade0dabdeeed9f6d4fb40a6000a63a84ae92ac21685d1a4acd4cc27bc9c517e
 
 name:           frappe-er
 version:        0.1.0.0
@@ -35,6 +35,9 @@ library
       Paths_frappe_er
   hs-source-dirs:
       src
+  ghc-options: -O2 -static -threaded
+  cc-options: -static
+  ld-options: -static -pthread
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -52,7 +55,9 @@ executable frappe-er-exe
       Paths_frappe_er
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -O2 -static -threaded -threaded -rtsopts -with-rtsopts=-N
+  cc-options: -static
+  ld-options: -static -pthread
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -72,7 +77,9 @@ test-suite frappe-er-test
       Paths_frappe_er
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -O2 -static -threaded -threaded -rtsopts -with-rtsopts=-N
+  cc-options: -static
+  ld-options: -static -pthread
   build-depends:
       aeson
     , base >=4.7 && <5

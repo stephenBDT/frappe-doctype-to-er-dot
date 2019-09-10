@@ -49,3 +49,4 @@ flycheck_*.el
 .stack-work
 
 .png
+.dot

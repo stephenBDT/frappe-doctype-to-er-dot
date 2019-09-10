@@ -1,24 +1,24 @@
+{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveGeneric #-}
 module DocType.DocGraph
   (renderDocTypes ) where
 
-import Data.Text as T
-import Data.Maybe as M
-import Graph.Graph as G
-import DocType.DocType
-import Data.List as L
-import Data.Aeson as JSON
-import System.Directory
-import GHC.Generics
-import Control.Monad
-import Data.ByteString.UTF8 as BSU
+import           Control.Monad
+import           Data.Aeson           as JSON
+import qualified Data.ByteString      as BS
 import qualified Data.ByteString.Lazy as B
-import qualified Data.ByteString as BS
+import           Data.ByteString.UTF8 as BSU
+import           Data.List            as L
+import           Data.Maybe           as M
+import           Data.Text            as T
+import           DocType.DocType
+import           GHC.Generics
+import           Graph.Graph          as G
+import           System.Directory
 
-docListToGraph :: [DocType] -> Graph
-docListToGraph list =
-  let (nodes, links) = docListToNodes list
+docListToGraph :: Bool -> [DocType] -> Graph
+docListToGraph includeFields list =
+  let (nodes, links) = docListToNodes includeFields list
   in G.mkGraph nodes $ L.concat links
 
 crosstable :: DocType -> Bool
@@ -26,19 +26,23 @@ crosstable x = linkAmount == 2 && fieldAmount <= 1
   where linkAmount = L.length $ L.filter (\x -> fieldtype x == "Link") $ fields x
         fieldAmount = L.length $ L.filter (\x -> fieldtype x /= "Link") $ fields x
 
-docListToNodes :: [DocType] -> ([Node], [[NodeLink]])
-docListToNodes docs =
+docListToNodes :: Bool -> [DocType] -> ([Node], [[NodeLink]])
+docListToNodes includeFields docs =
   let nodeId x = mkNodeId $ name x
       nodeColor x =
         case crosstable x of
-          True -> "gray"
+          True  -> "gray"
           False -> "blue"
   in unzip $ L.map (\x -> (mkNode (name x) (nodeId x) (genRelevantNodeFields $ fields x) (nodeColor x),
                            getLinks (nodeId x) $ fields x)) docs
   where genRelevantNodeFields fields=
           L.map mkNodeFields
-          $ L.filter (not . (`elem` ["Section Break", "Column Break"]) . fieldname)
+          $ L.filter filterFields
           fields
+        filterFields f =
+           if includeFields
+           then not $ (fieldname f) `elem` ["Section Break", "Column Break"]
+           else (fieldtype f) `L.elem` ["Link", "Table"]
 
         mkNodeFields :: DocField -> G.NodeField
         mkNodeFields doc =
@@ -78,10 +82,10 @@ findDocTypes fp =
 getAllDoctypes :: FilePath -> IO [Either String DocType]
 getAllDoctypes fp = findDocTypes fp >>= mapM getDocTypeFromJson
 
-renderDocTypes :: FilePath -> IO ()
-renderDocTypes fp =
+renderDocTypes :: Bool -> FilePath -> [FilePath] -> IO ()
+renderDocTypes includeFields outF fp =
   do
-    docTypes <- getAllDoctypes fp
-    writeFile "out.dot" $ renderGraph $ docListToGraph $ M.mapMaybe (\x -> case x of
+    docTypes <- mapM getAllDoctypes fp
+    writeFile outF $ renderGraph $ docListToGraph includeFields $ M.mapMaybe (\x -> case x of
                                                                     Left _ -> Nothing
-                                                                    Right a -> Just a) docTypes
+                                                                    Right a -> Just a) $ L.concat docTypes
