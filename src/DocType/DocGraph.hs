@@ -1,7 +1,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
 module DocType.DocGraph
-  (renderDocTypes ) where
+  (renderDocTypes, Format(..) ) where
 
 import           Control.Monad
 import           Data.Aeson           as JSON
@@ -16,10 +16,21 @@ import           GHC.Generics
 import           Graph.Graph          as G
 import           System.Directory
 
+data Format =
+  GraphML
+  | Dot
+
 docListToGraph :: Bool -> [DocType] -> Graph
 docListToGraph includeFields list =
   let (nodes, links) = docListToNodes includeFields list
-  in G.mkGraph nodes $ L.concat links
+      missingNodes = L.nub $ getMissingNodes (L.concat links) nodes
+  in G.mkGraph (nodes ++ missingNodes) $ L.concat links
+
+getMissingNodes :: [NodeLink] -> [Node] -> [Node]
+getMissingNodes links existingNodes =
+  L.map mkNodesFromLink $ L.filter (\(G.NodeLink _ target) -> not $ target `elem` (L.map G.nodeId existingNodes)) links
+  where mkNodesFromLink link =
+          mkNode (unNodeId $ targetId link) (targetId link) [] ""
 
 crosstable :: DocType -> Bool
 crosstable x = linkAmount == 2 && fieldAmount <= 1
@@ -41,7 +52,7 @@ docListToNodes includeFields docs =
           fields
         filterFields f =
            if includeFields
-           then not $ (fieldname f) `elem` ["Section Break", "Column Break"]
+           then not $ (fieldtype f) `L.elem` ["Section Break", "Column Break"]
            else (fieldtype f) `L.elem` ["Link", "Table"]
 
         mkNodeFields :: DocField -> G.NodeField
@@ -58,7 +69,7 @@ getLinks :: NodeId -> [DocField] -> [NodeLink]
 getLinks nodeId fields =
   L.concat $
   L.map (\field ->
-           M.maybeToList $ mkNodeLink (unNodeId nodeId ++ ":" ++ fieldname field) . mkNodeId <$> options field) $
+           M.maybeToList $ mkNodeLink (unNodeId nodeId, Just $ fieldname field) . mkNodeId <$> options field) $
   L.filter isLink fields
 
 getSubDirs:: FilePath -> IO [FilePath]
@@ -82,10 +93,15 @@ findDocTypes fp =
 getAllDoctypes :: FilePath -> IO [Either String DocType]
 getAllDoctypes fp = findDocTypes fp >>= mapM getDocTypeFromJson
 
-renderDocTypes :: Bool -> FilePath -> [FilePath] -> IO ()
-renderDocTypes includeFields outF fp =
+renderDocTypes :: Format -> Bool -> FilePath -> [FilePath] -> IO ()
+renderDocTypes format includeFields outF fp =
   do
     docTypes <- mapM getAllDoctypes fp
-    writeFile outF $ renderGraph $ docListToGraph includeFields $ M.mapMaybe (\x -> case x of
+    putStrLn $ show docTypes
+    writeFile outF $ renderF $ docListToGraph includeFields $ M.mapMaybe (\x -> case x of
                                                                     Left _ -> Nothing
                                                                     Right a -> Just a) $ L.concat docTypes
+  where renderF =
+          case format of
+            Dot -> renderGraph
+            GraphML -> renderYGraph

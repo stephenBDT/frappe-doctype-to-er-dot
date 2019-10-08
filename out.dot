@@ -1,206 +1,80 @@
 digraph models_diagram {
- graph[overlap=false, splines=true]Abobox[
+ graph[overlap=false, splines=true]PcgIssuesSettings[
 shape=plaintext
 label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Abobox</td></tr>
+<tr><td>Pcg Issues Settings</td></tr>
 <tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
+<tr><td align='left'>import_server</td><td align='left'  port='import_server'>:Data</td></tr>
 
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
+<tr><td align='left'>last_modified_import</td><td align='left'  port='last_modified_import'>:Datetime</td></tr>
 
-<tr><td align='left'>pcg_rid</td><td align='left'  port='pcg_rid'>:Data</td></tr>
+<tr><td align='left'>import_password</td><td align='left'  port='import_password'>:Password</td></tr>
 
-<tr><td align='left'>pcg_tid</td><td align='left'  port='pcg_tid'>:Data</td></tr>
+<tr><td align='left'>import_database_name</td><td align='left'  port='import_database_name'>:Data</td></tr>
 
-<tr><td align='left'>pcg_cid</td><td align='left'  port='pcg_cid'>:Data</td></tr>
+<tr><td align='left'>import_database_user</td><td align='left'  port='import_database_user'>:Data</td></tr>
 
-<tr><td align='left'>variant_abogroup_child</td><td align='left'  port='variant_abogroup_child'>:Table</td></tr>
+<tr><td align='left'>max_issues</td><td align='left'  port='max_issues'>:Int</td></tr>
 
-<tr><td align='left'>type_abogroup_child</td><td align='left'  port='type_abogroup_child'>:Table</td></tr>
-
-<tr><td align='left'>container_abogroup_child</td><td align='left'  port='container_abogroup_child'>:Table</td></tr>
+<tr><td align='left'>periodic_sync_enabled</td><td align='left'  port='periodic_sync_enabled'>:Check</td></tr>
 </table></td></tr>
 </table>
 >];
 
-Unit[
+PcgIssue[
 shape=plaintext
 label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Unit</td></tr>
+<tr><td>Pcg Issue</td></tr>
 <tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
+<tr><td align='left'>title</td><td align='left'  port='title'>:Small Text</td></tr>
+
+<tr><td align='left'>comment</td><td align='left'  port='comment'>:Small Text</td></tr>
+
+<tr><td align='left'>status</td><td align='left'  port='status'>:Select</td></tr>
+
+<tr><td align='left'>reference_issue</td><td align='left'  port='reference_issue'>:Link</td></tr>
+
+<tr><td align='left'>creation_time</td><td align='left'  port='creation_time'>:Datetime</td></tr>
+
+<tr><td align='left'>remote_modified</td><td align='left'  port='remote_modified'>:Datetime</td></tr>
+
 <tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
 
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
+<tr><td align='left'>pcg_customer</td><td align='left'  port='pcg_customer'>:Link</td></tr>
+
+<tr><td align='left'>pcg_customer_name</td><td align='left'  port='pcg_customer_name'>:Data</td></tr>
+
+<tr><td align='left'>assigned_user</td><td align='left'  port='assigned_user'>:Link</td></tr>
+
+<tr><td align='left'>screenshots</td><td align='left'  port='screenshots'>:Attach Image</td></tr>
+
+<tr><td align='left'>referencing_issues</td><td align='left'  port='referencing_issues'>:Table</td></tr>
+
+<tr><td align='left'>master_issue_text</td><td align='left'  port='master_issue_text'>:Small Text</td></tr>
+
+<tr><td align='left'>master_issue_status</td><td align='left'  port='master_issue_status'>:Select</td></tr>
+
+<tr><td align='left'>minutes_burned</td><td align='left'  port='minutes_burned'>:Int</td></tr>
+
+<tr><td align='left'>answer</td><td align='left'  port='answer'>:Markdown Editor</td></tr>
+
+<tr><td align='left'>visible_customer</td><td align='left'  port='visible_customer'>:Check</td></tr>
+
+<tr><td align='left'>visible_faq</td><td align='left'  port='visible_faq'>:Check</td></tr>
 </table></td></tr>
 </table>
 >];
 
-Item[
+PcgReferencingIssues[
 shape=plaintext
 label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Item</td></tr>
+<tr><td>Pcg Referencing Issues</td></tr>
 <tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
+<tr><td align='left'>referencing_issue_name</td><td align='left'  port='referencing_issue_name'>:Link</td></tr>
 
-<tr><td align='left'>pcg_group_id</td><td align='left'  port='pcg_group_id'>:Data</td></tr>
+<tr><td align='left'>title</td><td align='left'  port='title'>:Text</td></tr>
 
-<tr><td align='left'>label</td><td align='left'  port='label'>:Data</td></tr>
-
-<tr><td align='left'>type</td><td align='left'  port='type'>:Data</td></tr>
-
-<tr><td align='left'>group_link</td><td align='left'  port='group_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-DDate[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>DDate</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>pcg_tour_id</td><td align='left'  port='pcg_tour_id'>:Data</td></tr>
-
-<tr><td align='left'>datetime</td><td align='left'  port='datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>p_datetime</td><td align='left'  port='p_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>prev_datetime</td><td align='left'  port='prev_datetime'>:Datetime</td></tr>
-</table></td></tr>
-</table>
->];
-
-Rubric[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Rubric</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-NavigationDetail[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>NavigationDetail</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-OrderDetail[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>OrderDetail</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>pcg_order_id</td><td align='left'  port='pcg_order_id'>:Data</td></tr>
-
-<tr><td align='left'>pcg_item_id</td><td align='left'  port='pcg_item_id'>:Data</td></tr>
-
-<tr><td align='left'>amount</td><td align='left'  port='amount'>:Float</td></tr>
-
-<tr><td align='left'>pcg_unit_id</td><td align='left'  port='pcg_unit_id'>:Data</td></tr>
-
-<tr><td align='left'>order_link</td><td align='left'  port='order_link'>:Link</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>unit_link</td><td align='left'  port='unit_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-SubscriptionPause[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>SubscriptionPause</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>from_datetime</td><td align='left'  port='from_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>to_datetime</td><td align='left'  port='to_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>customer_link</td><td align='left'  port='customer_link'>:Link</td></tr>
-
-<tr><td align='left'>subscription_link</td><td align='left'  port='subscription_link'>:Link</td></tr>
-
-<tr><td align='left'>aboorder_link</td><td align='left'  port='aboorder_link'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-Abogroup[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Abogroup</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-
-<tr><td align='left'>type</td><td align='left'  port='type'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-Tour[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Tour</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-
-<tr><td align='left'>osh</td><td align='left'  port='osh'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-UnitX[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>UnitX</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-
-<tr><td align='left'>unit_link</td><td align='left'  port='unit_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Group[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Group</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-Navigation[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Navigation</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>navigation_detail_link</td><td align='left'  port='navigation_detail_link'>:Link</td></tr>
+<tr><td align='left'>ref_customer_name</td><td align='left'  port='ref_customer_name'>:Data</td></tr>
 </table></td></tr>
 </table>
 >];
@@ -208,219 +82,26 @@ label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
 PcgCustomer[
 shape=plaintext
 label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>PcgCustomer</td></tr>
+<tr><td>Pcg Customer</td></tr>
 <tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
 <tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>first_name</td><td align='left'  port='first_name'>:Data</td></tr>
-
-<tr><td align='left'>second_name</td><td align='left'  port='second_name'>:Data</td></tr>
 
 <tr><td align='left'>label</td><td align='left'  port='label'>:Data</td></tr>
+
+<tr><td align='left'>phone</td><td align='left'  port='phone'>:Data</td></tr>
+
+<tr><td align='left'>email</td><td align='left'  port='email'>:Data</td></tr>
 </table></td></tr>
 </table>
 >];
 
-AboOrder[
+User[
 shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>AboOrder</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>abobox_link</td><td align='left'  port='abobox_link'>:Link</td></tr>
-
-<tr><td align='left'>customer_link</td><td align='left'  port='customer_link'>:Link</td></tr>
-
-<tr><td align='left'>from_datetime</td><td align='left'  port='from_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>until_datetime</td><td align='left'  port='until_datetime'>:Datetime</td></tr>
-</table></td></tr>
+label=<<table border='0' cellborder='1' color='' cellspacing='0'>
+<tr><td>User</td></tr>
 </table>
->];
-
-Abobox_X_Order[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='gray' cellspacing='0'>
-<tr><td>Abobox_X_Order</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>order_link</td><td align='left'  port='order_link'>:Link</td></tr>
-
-<tr><td align='left'>abobox_link</td><td align='left'  port='abobox_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Abodate[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Abodate</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>from_date</td><td align='left'  port='from_date'>:Datetime</td></tr>
-
-<tr><td align='left'>to_date</td><td align='left'  port='to_date'>:Datetime</td></tr>
-</table></td></tr>
-</table>
->];
-
-Item_X_Map[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='gray' cellspacing='0'>
-<tr><td>Item_X_Map</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>group_link</td><td align='left'  port='group_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Subscription[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Subscription</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>from_datetime</td><td align='left'  port='from_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>until_datetime</td><td align='left'  port='until_datetime'>:Data</td></tr>
-
-<tr><td align='left'>customer_link</td><td align='left'  port='customer_link'>:Data</td></tr>
-</table></td></tr>
-</table>
->];
-
-Order[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Order</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>order_datetime</td><td align='left'  port='order_datetime'>:Datetime</td></tr>
-
-<tr><td align='left'>pcg_ddate</td><td align='left'  port='pcg_ddate'>:Data</td></tr>
-
-<tr><td align='left'>pcg_tour_id</td><td align='left'  port='pcg_tour_id'>:Data</td></tr>
-
-<tr><td align='left'>pcg_customer_id</td><td align='left'  port='pcg_customer_id'>:Data</td></tr>
-
-<tr><td align='left'>ddate_link</td><td align='left'  port='ddate_link'>:Link</td></tr>
-
-<tr><td align='left'>tour_link</td><td align='left'  port='tour_link'>:Link</td></tr>
-
-<tr><td align='left'>customer_link</td><td align='left'  port='customer_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-ShippingAdress[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>ShippingAdress</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>street</td><td align='left'  port='street'>:Data</td></tr>
-
-<tr><td align='left'>tour_link</td><td align='left'  port='tour_link'>:Link</td></tr>
-
-<tr><td align='left'>customer_link</td><td align='left'  port='customer_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-AboAssortment[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>AboAssortment</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Data</td></tr>
-
-<tr><td align='left'>abodate_link</td><td align='left'  port='abodate_link'>:Link</td></tr>
-
-<tr><td align='left'>abobox_link</td><td align='left'  port='abobox_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Item_X_Rubric[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='gray' cellspacing='0'>
-<tr><td>Item_X_Rubric</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>rubric_link</td><td align='left'  port='rubric_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Subgroup[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>Subgroup</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>pcg_parent_group_id</td><td align='left'  port='pcg_parent_group_id'>:Data</td></tr>
-
-<tr><td align='left'>title</td><td align='left'  port='title'>:Data</td></tr>
-
-<tr><td align='left'>parent_group_link</td><td align='left'  port='parent_group_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];
-
-Item_X_Recipe[
-shape=plaintext
-label=<<table border='0' cellborder='1' color='gray' cellspacing='0'>
-<tr><td>Item_X_Recipe</td></tr>
-<tr><td><table border='0' color='orange' cellspacing='0' cellborder='0'>
-<tr><td align='left'>pcg_id</td><td align='left'  port='pcg_id'>:Data</td></tr>
-
-<tr><td align='left'>item_link</td><td align='left'  port='item_link'>:Link</td></tr>
-
-<tr><td align='left'>recepie_item_link</td><td align='left'  port='recepie_item_link'>:Link</td></tr>
-</table></td></tr>
-</table>
->];Abobox:variant_abogroup_child -> Abogroup
-Abobox:type_abogroup_child -> Abogroup
-Abobox:container_abogroup_child -> Abogroup
-Item:group_link -> Group
-OrderDetail:order_link -> Order
-OrderDetail:item_link -> Item
-OrderDetail:unit_link -> Unit
-SubscriptionPause:customer_link -> PcgCustomer
-SubscriptionPause:subscription_link -> Subscription
-UnitX:item_link -> Item
-UnitX:unit_link -> Unit
-Navigation:navigation_detail_link -> NavigationDetail
-AboOrder:abobox_link -> Abobox
-AboOrder:customer_link -> PcgCustomer
-Abobox_X_Order:order_link -> Order
-Abobox_X_Order:abobox_link -> Abobox
-Item_X_Map:item_link -> Item
-Item_X_Map:group_link -> Subgroup
-Subscription:item_link -> Item
-Order:ddate_link -> DDate
-Order:tour_link -> Tour
-Order:customer_link -> PcgCustomer
-ShippingAdress:tour_link -> Tour
-ShippingAdress:customer_link -> PcgCustomer
-AboAssortment:abodate_link -> Abodate
-AboAssortment:abobox_link -> Abobox
-Item_X_Rubric:item_link -> Item
-Item_X_Rubric:rubric_link -> Rubric
-Subgroup:parent_group_link -> Group
-Item_X_Recipe:item_link -> Item
-Item_X_Recipe:recepie_item_link -> Item}
+>];PcgIssue:reference_issue -> PcgIssue
+PcgIssue:pcg_customer -> PcgCustomer
+PcgIssue:assigned_user -> User
+PcgIssue:referencing_issues -> PcgReferencingIssues
+PcgReferencingIssues:referencing_issue_name -> PcgIssue}

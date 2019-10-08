@@ -20,38 +20,26 @@ import Options.Applicative
 import Data.Semigroup ((<>))
 
 data Sample = Sample
-  { hello      :: Maybe String
-  , noFields :: Bool
-  , onlyLinkFields :: Bool
+  { onlyLinkFields :: Bool
+  , yedFormat :: Bool
   , outFile      :: Maybe String
   , filePath      :: [String] }
 
 sample :: Parser Sample
 sample = Sample
-  <$> optional (
-    strOption
-    ( long "hello"
-      <> metavar "TARGET"
-      <> help "Target for the greeting" ))
-  <*> switch
-      ( long "show-fields"
-      <> short 'f'
-      <> help "Whether to include datafields at all" )
-  <*> switch
+  <$>  switch
       ( long "only-link-fields"
       <> short 'l'
       <> help "Whether to show only Links" )
+  <*> switch
+      ( long "output-graphml"
+      <> short 'y'
+      <> help "Whether to output .graphml file" )
   <*> optional (strOption
           ( long "out"
          <> metavar "TARGET"
          <> short 'o'
          <> (help $ "specify the output filename ")))
-      -- <*> option auto
-      --     ( long "enthusiasm"
-      --    <> help "How enthusiastically to greet"
-      --    <> showDefault
-      --    <> value 1
-      --    <> metavar "INT" )
       <*> many (argument str (metavar "FILEPATH"))
 
 
@@ -60,8 +48,16 @@ main = do
   args <- execParser opts
   putStrLn $ "Generating ER for all doctypes found beneath"
   mapM putStrLn (filePath args)
-  renderDocTypes (onlyLinkFields args) (fromMaybe "out.dot" $ outFile args) $ filePath args
+  renderDocTypes (format args) (not $ onlyLinkFields args) (fromMaybe (defaultOutputName args) $ outFile args) $ filePath args
   where
+    defaultOutputName args = 
+      case yedFormat args of
+        True -> "out.graphml"
+        False -> "out.dot"
+    format args =
+      case yedFormat args of
+        True -> GraphML
+        False -> Dot
     opts = info (sample <**> helper)
       ( fullDesc
      <> progDesc ""
@@ -69,12 +65,3 @@ main = do
 
 greet :: Sample -> IO ()
 greet _ = return ()
-
-
-
-
--- main :: IO ()
--- main = do
---   currentDir <- listDirectory "/home/steffen/Bilder"
---   _ <- mapM putStrLn currentDir
-
